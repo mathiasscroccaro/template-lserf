@@ -1,0 +1,238 @@
+
+%%% ============================================================
+%% Template || Anhanguera
+%% Faculdade: Anhaguera - FAC 4 
+%% Autor: Agord Pinto Júnior
+%% Fevereiro - 2017
+%%% ============================================================
+
+%% -------------------------------------------------------------------------------------------------------------
+%%														PREÂMBULO
+%% -------------------------------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc} 			% codificacao de caracteres
+\usepackage[T1]{fontenc}   				% codificacao de fontes
+\usepackage[brazil]{babel}  				% idioma
+\usepackage[brazil=nohyphenation]{hyphsubst} % Não separar as palavras
+\hyphenation{thatshouldnot}			% Não separar as palavras
+
+\usetheme{CambridgeUS}        			% tema
+\usecolortheme{orchid}      				% cores
+\usefonttheme[onlymath]{serif}  	% fonte modo matematico
+
+%% --------------------------------------
+%%    PACOTES
+%% --------------------------------------
+
+\usepackage{lmodern}
+\usepackage[labelformat=empty,labelsep=none]{subfig}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+
+\usepackage{draftwatermark} % Marca D'Agua
+
+\usepackage{graphics,graphicx}		% grafico (caixas)
+\usepackage{epstopdf}						% converter a figura
+\usepackage{tikz}									% grafico potentes
+\usepackage{epsfig}			 					% for figures
+\usepackage{xcolor} 			 					% for color
+
+\usepackage{color,colortbl,multirow} 	% tabelas e matrizes
+\usepackage{fix2col}										% fixa algumas perdas causado p/ uso de 2 colunas
+\usepackage{multicol} 									% documento com multiplas colunas
+\setlength{\columnsep}{.15cm}
+
+\usepackage{hyperref} 								% links e referencias 
+
+\usepackage{setspace} 								% controlar o espaçamento entre linhas
+\usepackage{ragged2e}								% justificar texto
+
+\usepackage{textpos} 
+
+%% --------------------------------------------------------
+\usepackage{enumerate}							% controla o estilo de enumeração
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+
+\setbeamertemplate{description item}[align left]
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+\setbeamertemplate{enumerate item}[square]
+
+\setbeamercolor*{enumerate item}{fg=blue!80!white}
+\setbeamercolor*{enumerate subitem}{fg=green!40!black}
+\setbeamercolor*{enumerate subsubitem}{fg=blue!80!white}
+
+\renewcommand{\raggedright}{\justifying} %% Justificar os Itens (Itemize)
+
+%% --------------------------------------------------------
+
+\usepackage{latexsym}					% Adicionar Simbolos
+\usepackage{pifont}							% simbolos diferentes | circulos c/ numrs no seu interior, letras gregas, Zapf Dingbats // Exemplo: http://www.uel.br/projetos/matessencial/superior/pdfs/latexmat.pdf (pág 38)
+
+\usepackage{amsmath}					% pacotes matematicos 
+\usepackage{amsfonts}					% pacotes matematicos 
+\usepackage{amssymb}					% pacotes matematicos | simbolos
+\usepackage{amsthm}			     		% pacotes matematicos | teoremas e similares
+\usepackage{exscale}					 	% pacotes matematicos 
+
+%% --------------------------------------
+%%    Blocos \TCOLOBLOCKS
+%% --------------------------------------
+
+\usepackage[listings]{tcolorbox}
+\usepackage{tcolorbox}
+
+\usetikzlibrary{patterns}
+
+\tcbuselibrary{skins}
+\tcbuselibrary{raster}
+\tcbuselibrary{xparse}
+\usepackage{tikz}
+\tcbuselibrary{skins,listings}
+
+%% --------------------------------------
+%%    Blocos \SMARTDIAGRAM
+%% --------------------------------------
+
+\usepackage{smartdiagram}
+ 
+ 
+%% --------------------------------------
+%%    PERSONALIZAR CORES
+%% --------------------------------------
+
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=green!40!black}
+\setbeamercolor*{palette primary}{use=structure,fg=black,bg=gray}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=blue!80!white}
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\setbeamercolor*{title}{bg=blue!80!white,fg=white}
+\setbeamercolor{author}{fg=white,bg=gray}
+
+\setbeamercolor{frametitle}{bg=structure!75,fg=black, bg=white}
+
+\setbeamercolor*{item}{fg=orange} % mudar a caor do itemize
+
+%% --------------------------------------
+%%    LOGOMARCA
+%% --------------------------------------
+\setbeamertemplate{frametitle}{%
+    \usebeamerfont{frametitle}\insertframetitle%
+    \vphantom{g}% To avoid fluctuations per frame
+    %\hrule% Uncomment to see desired effect, without a full-width hrule
+    \par% <-- added
+    \hspace*{-\dimexpr0.5\paperwidth-0.5\textwidth}% <-- calculation of left margin width
+    \rule[0.3\baselineskip]{\paperwidth}{0.4pt}%
+}
+  
+%% --------------------------------------
+\setbeamercolor*{fine separation line}{}
+
+%\useoutertheme{miniframes} % faixa preta personalizavel acima
+%\useinnertheme{circles}
+
+\beamertemplatenavigationsymbolsempty % remover botão e links
+
+%% --------------------------------------
+%%   Remover Faculdade do Lado do Nome no Rodapé
+%% --------------------------------------
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+%% --------------------------------------
+%%    TITULO
+%% --------------------------------------
+% position the logo
+\title[\sc{Enclosed Layout Transistors (ELT)}]{\textbf{Modelagem Transistor MOS}}
+\subtitle{Trabalho Modelamento Transistor ELT}
+\author[Prof.: Júnior]{\includegraphics[width=0.15\columnwidth]{imagens/permanente/Unicamp_Color.eps} \\ \textbf{Agord de Matos Pinto \textit{Júnior} \\ \textit{Luiz} Fernando Pinto de Oliveira}}
+\institute{Prof. Dr. Roberto Larceda de Orio} % opcional
+\date{\today}
+
+%%  =============================================================
+%%													INICIO  DA  APRESENTAÇÃO
+%%  =============================================================
+
+\begin{document}
+
+%% -------------------------------------------------------------------------------------------------------------
+%%														                CAPA
+%% -------------------------------------------------------------------------------------------------------------
+
+\begingroup
+\renewcommand{\insertframenumber}{}
+ \begin{frame}
+  \addtocounter{framenumber}{-1}
+  \titlepage
+ \end{frame}
+\endgroup
+
+%% --------------------------------------
+%%    LOGOMARCA NO TÍTULO DOS SLIDES
+%% --------------------------------------
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{1cm}(\textwidth,-1.2cm)
+      \hspace{-3cm}  \includegraphics[width=2.85\textwidth]{imagens/permanente/LSERF-VF.eps} 
+\end{textblock*}}
+
+%% =============================================================
+%%														                SLIDES
+%% =============================================================
+
+%% -------------------------------------------------------------------------------------------------------------
+%%							           			     
+%% -------------------------------------------------------------------------------------------------------------
+
+\begin{frame}{Anteâmbulo}
+
+
+
+\end{frame}
+
+%% -------------------------------------------------------------------------------------------------------------
+%%							           			     
+%% -------------------------------------------------------------------------------------------------------------
+
+\begin{frame}{Mathias}
+
+
+
+\end{frame}
+
+
+
+%% -------------------------------------------------------------------------------------------------------------
+%%													      BIBLIOGRAFIA 
+%% -------------------------------------------------------------------------------------------------------------
+
+
+\frame[allowframebreaks]{
+
+% ---- Refer\^{e}ncias bibliogr\'{a}ficas ----
+\bibliographystyle{apalike} % estilo da bibliografia
+\footnotesize \bibliography{bibliografia} % chamando o arquivo .bib
+
+}
+
+%%  =============================================================
+\end{document}
